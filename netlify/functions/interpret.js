@@ -31,7 +31,6 @@ ${name}'s answers:
 
 Write in English, addressing ${name} warmly as a friend. Be gentle and kind — not like a therapist, but like someone who truly cares. Don't analyze their personality — reflect their current mood and state. Acknowledge what's hard, but always find and name what's strong and beautiful in the picture. Flowing prose, no lists, 3–4 paragraphs.`,
 };
-
 export const handler = async (event) => {
   if (event.httpMethod !== 'POST') {
     return { statusCode: 405, body: JSON.stringify({ error: 'Method not allowed' }) };
