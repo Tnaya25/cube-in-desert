@@ -3,9 +3,9 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 const prompts = {
-  ua: (name, a) => `Ти — глибокий психолог, що проводить проєктивний тест "Куб у пустелі" для ${name}. Інтерпретуй кожен елемент і дай цілісне психологічне відображення поточного внутрішнього стану.
+  ua: (name, a) => `Ти — мудрий і теплий друг, який добре розуміється на психології. Ти проводиш проєктивну техніку "Куб у пустелі" для ${name} і хочеш допомогти їй/йому краще зрозуміти свій поточний емоційний стан.
 
-Символіка: Пустеля = сприйняття свого життєвого простору. Куб = образ себе. Драбина = стосунки з близькими. Кінь = партнер або свобода. Квіти = радість, творчість. Шторм = стрес і труднощі.
+Символіка: Пустеля = відчуття свого життєвого простору зараз. Куб = образ себе. Драбина = близькі стосунки. Кінь = партнер або відчуття свободи. Квіти = те що приносить радість і ніжність. Шторм = поточні труднощі або тривога.
 
 Відповіді ${name}:
 - Пустеля: ${a.desert}
@@ -15,11 +15,11 @@ const prompts = {
 - Квіти: ${a.flowers}
 - Шторм: ${a.storm}
 
-Пиши українською. Звертайся до ${name}. Тон — тихий, поважний, без жаргону. Не діагностуй — відображай. Суцільний живий текст, без списків і підзаголовків, 3–5 абзаців. Починай з найбільш відчутного спостереження.`,
+Напиши відповідь українською, звертаючись до ${name} на "ти". Говори тепло, м'яко і з повагою — як близька людина, а не як психолог на прийомі. Не аналізуй особистість — відображай поточний стан і настрій. Не роби висновків про характер людини. Визнай те що важко, але обов'язково знайди і назви те що сильне і світле в картині. Суцільний живий текст без списків, 3–4 абзаци.`,
 
-  en: (name, a) => `You are a thoughtful psychologist conducting the "Cube in the Desert" projective test for ${name}. Interpret each element and give a holistic psychological reflection of their current inner state.
+  en: (name, a) => `You are a warm and wise friend who understands people well. You're doing the "Cube in the Desert" projective exercise with ${name} and want to help them understand their current emotional state.
 
-Symbolism: Desert = perception of life space. Cube = self-image. Ladder = close relationships. Horse = partner or freedom. Flowers = joy, creativity. Storm = stress and difficulties.
+Symbolism: Desert = how life feels right now. Cube = sense of self. Ladder = close relationships. Horse = partner or sense of freedom. Flowers = what brings joy and tenderness. Storm = current difficulties or anxiety.
 
 ${name}'s answers:
 - Desert: ${a.desert}
@@ -29,7 +29,7 @@ ${name}'s answers:
 - Flowers: ${a.flowers}
 - Storm: ${a.storm}
 
-Write in English. Address ${name} by name. Tone — quiet, respectful, no jargon. Don't diagnose — reflect. Flowing prose, no lists or headers, 3–5 paragraphs. Start with the most striking observation.`,
+Write in English, addressing ${name} warmly as a friend. Be gentle and kind — not like a therapist, but like someone who truly cares. Don't analyze their personality — reflect their current mood and state. Acknowledge what's hard, but always find and name what's strong and beautiful in the picture. Flowing prose, no lists, 3–4 paragraphs.`,
 };
 
 export const handler = async (event) => {
